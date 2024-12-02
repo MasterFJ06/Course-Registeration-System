@@ -1,0 +1,624 @@
+Name – Farhan Nadaf
+PRN – B24IT1074
+SUB – EEL 
+
+1.	Write a C program that acts as a scientific calculator for performing basic arithmetic operations.
+
+
+#include <stdio.h>
+void main()
+{
+int ch,a,b,sum,sub,mul,div;
+printf("enter the two number");
+scanf("%d %d",&a,&b);
+sum=a+b;
+sub=a-b;
+mul=a*b;
+div=a/b;
+printf("enter your choice");
+scanf("%d",&ch);
+switch(ch){
+case 1:
+printf("%d is the sum",sum);
+break;
+case 2:
+printf("%d is the subtraction”,sub);
+break;
+case 3:
+printf("%d is the multiplication",mul);
+break;
+case 4:
+printf("%d is the division",div);
+break;
+default:
+printf("invalid choice");
+}
+ printf("switch case is over");
+}
+
+
+Output:
+
+1] enter the two number
+2 4 
+enter your choice
+1
+6 is the sum switch case is over
+
+2] enter the two number
+7 2
+enter your choice
+2
+5 is the subtraction switch case is over
+
+3] enter the two number
+6 9
+enter your choice
+3
+54 is the multiplication switch case is over
+
+4] enter the two number
+8 4
+enter your choice
+4
+2 is the division switch case is over
+
+
+
+
+
+2.	Write a C program to determine the eligibility of a person to vote based on their age and citizenship status.
+
+
+#include <stdio.h>
+void main(){
+int age , i;
+printf("Enter your age ");
+scanf("%d",&age);
+printf("Enter the number 1 if you are Indian, and 0 if are not Indian \n");
+scanf("%d",&i);
+if (age>=18 && i==1){
+   printf("You are eligible to vote");
+}
+else if (age<18 || i==0){
+printf("You are not eligible to vote ");
+}
+  else {
+    printf("Enter the valid number");
+  }
+  return 0;
+}
+
+
+
+Output:
+
+Enter your age 
+19
+Enter the number 1 if you are Indian, and 0 if are not Indian 
+1
+You are eligible to vote
+
+
+
+
+
+
+3.	Write a C program to calculate the average and grade of each student.
+
+
+#include <stdio.h>
+void main(){
+int phy,chem,bio,math,comp,percentage,sum,average;
+printf("Enter the marks of all subject");
+scanf("%d%d%d%d%d",&phy,&chem,&bio,&math,&comp);
+sum=phy+chem+bio+math+comp;
+percentage=(sum)/5;
+printf("percentage of student is %d",percentage);
+if(percentage>90)
+printf("You got the Grade A\n");
+else if(percentage>80 && percentage<=90)
+printf("You got the Grade B\n");
+else if(percentage>70 && percentage<=80)
+printf("You got the Grade C\n");
+else if(percentage>60 && percentage<=70)
+printf("You got the Grade D\n");
+else if (percentage>40 && percentage<=60)
+printf("You got the Grade E\n" );
+else
+printf("You are fail");
+}
+
+
+
+Output:
+
+Enter the marks of all subject
+99 100 98 97 98 
+percentage of student is 98
+You got the Grade A
+
+
+
+
+
+4.	a) Create a structure named "Car" to store details like car ID, model, and rental rate per day. Write a C program to input data for three cars, calculate the total rental cost for a specified number of days, and display the results.
+
+
+#include <stdio.h>
+struct car
+{ 
+int id; 
+char name[20]; 
+int price; 
+}; 
+void main() 
+{ 
+int day, total; 
+struct car cars[3]; 
+for (int i = 0; i < 3; i++) 
+{ 
+printf("Enter car id: "); 
+scanf("%d", &cars[i].id); 
+printf("Enter car name: "); 
+scanf("%s", cars[i].name); 
+printf("Enter car price: "); 
+scanf("%d", &cars[i].price); 
+} 
+printf(" enter days:"); 
+scanf("%d", &day); 
+for (int i = 0; i < 3; i++) 
+{ 
+total = cars[i]. price*day; 
+printf("car id: %d\n", cars[i].id); 
+printf("car name: %s\n", cars[i].name); 
+printf("car price: %d\n", cars[i].price); printf("total price: %d\n", total); 
+} 
+}
+
+
+Output:
+
+Enter car id: 1 
+Enter car name: BMW 
+Enter car price: 10000 
+Enter car id: 2 
+Enter car name: PORSCHE 
+Enter car price: 5000000 
+Enter car id: 3 
+Enter car name: BENZ 
+Enter car price: 8000000 
+enter days:5
+car id: 1 
+car name: BMW 
+car price: 10000 
+total price: 50000 
+car id: 2 
+car name: PORSCHE 
+car price: 5000000 
+total price: 25000000 
+car id: 3 
+car name: BENZ 
+car price: 8000000 
+total price: 40000000
+
+
+
+
+
+
+4.     b) Write a program in C to 
+i. Count the total number of vowels or consonants in a string.
+ii. Compare two strings without
+using string library functions.
+iii. Count the total number of words
+in a string.
+iv. Print individual characters of a
+string in reverse order.
+
+
+#include 
+void 
+countVowelsAndConsonants(char 
+str[], int *vowels, int *consonants) 
+{ 
+*vowels = 0; 
+*consonants = 0; 
+for (int i = 0; str[i] != '\0'; i++) 
+{ 
+char ch = str[i]; 
+if (ch >= 'A' && ch <= 'Z') 
+{ 
+ch += 'a' - 'A'; 
+} 
+if (ch >= 'a' && ch <= 'z') 
+{ 
+if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') { 
+(*vowels)++; 
+} 
+else 
+{ 
+(*consonants)++; 
+} 
+} 
+} 
+}
+int main() 
+{ 
+char str[100]; 
+int vowels, consonants; 
+printf("Enter a string: "); 
+fgets(str, sizeof(str), stdin); countVowelsAndConsonants(str, &vowels, &consonants); printf("Total Vowels: %d\n", vowels); 
+printf("Total Consonants: %d\n", consonants); 
+return 0; 
+}
+
+Output:
+
+Enter a string: Hello World 
+Total Vowels: 3 
+Total Consonants: 7
+5.	a) Create a union Measurement with members for length in meters, weight in kilograms, and temperature in Celsius, and write a function to print the value.
+
+
+#include <stdio.h>
+union Measurement { 
+float length; 
+float weight; 
+float temperature; 
+}; // 
+void printMeasurement(union Measurement m, int choice) 
+{ 
+switch(choice) 
+{ 
+case 1: 
+printf("Length: %.2f meters\n", m.length); 
+break;
+case 2: 
+printf("Weight: %.2f kilograms\n", m.weight); 
+break; 
+case 3: 
+printf("Temperature: %.2f Celsius\n", m.temperature); break; 
+default: 
+printf("Invalid choice\n"); 
+} 
+} 
+int main() 
+{ 
+union Measurement m; 
+m.length = 5.25; 
+meters m.weight = 70.5; 
+m.temperature = 22.0; 
+printf("Select the type of measurement to display:\n"); printf("1. Length\n"); 
+printf("2. Weight\n"); 
+printf("3. Temperature\n"); 
+int choice; 
+scanf("%d", &choice); 
+printMeasurement(m, choice); 
+return 0; 
+}
+
+Output: 
+
+Select the type of measurement to display: 
+1. Length 
+2. Weight 
+3. Temperature 
+1 
+Length: 5.25 meters
+5.	b) Write a C program that uses a pointer to an array of integers and prints all elements of the array using the pointer.
+
+#include void main () 
+{ 
+int a[5]; 
+int *ptr; 
+ptr = a; 
+printf("Enter the array elements:\n"); 
+for( int i = 0; i<5;i++)
+{
+printf("element is %d\n", a[i]); 
+printf("address is %u\n", &a[i]); 
+} 
+}
+
+Output:
+	
+Enter the array elements: 1 2 3 4 5 6 
+   	element is 1 
+   	address is 4294957776 
+   	element is 2 
+   	address is 4294957780 
+   	element is 3 
+   	address is 4294957784 
+   	element is 4 
+   	address is 4294957788  
+   	element is 5 
+   	address is 4294957792
+
+
+
+
+
+
+6.	Implement C programs to perform addition and multiplication of two 3X3 matrices using Array.
+
+#include <stdio.h> 
+int main() 
+{ 
+int A[3][3], B[3][3], product[3][3] = {0}; 
+printf("Enter elements for matrix A (3x3):\n"); 
+for (int i = 0; i < 3; i++) 
+{ 
+for (int j = 0; j < 3; j++) 
+{ 
+scanf("%d", &A[i][j]); 
+} 
+} 
+printf("Enter elements for matrix B (3x3):\n"); 
+for (int i = 0; i < 3; i++) 
+{ 
+for (int j = 0; j < 3; j++) 
+{ 
+scanf("%d", &B[i][j]); 
+} 
+} 
+// Matrix multiplication 
+for (int i = 0; i < 3; i++) 
+{ 
+for (int j = 0; j < 3; j++) 
+{ 
+for (int k = 0; k < 3; k++) 
+{ 
+product[i][j] += A[i][k] * B[k][j]; 
+} 
+} 
+} 
+// Displaying the 
+resultprintf("Product of matrices A and B:\n"); 
+for (int i = 0; i < 3; i++) 
+{ 
+for (int j = 0; j < 3; j++) 
+{ 
+printf("%d ", product[i][j]); 
+} 
+printf("\n"); 
+} 
+return 0;
+}
+
+
+
+
+
+
+Output:
+
+Enter elements for matrix A (3x3): 
+1 2 3 
+4 5 6 
+7 8 9 
+Enter elements for matrix B (3x3): 
+9 8 7 
+6 5 4 
+3 2 1 
+Product of matrices A and B: 
+30 24 18 
+84 69 54 
+138	4 90
+
+
+
+
+
+
+7.	a) Write a C program to check whether a number is palindrome or not using recursion. Program will accept a number from the user and display whether the given number is palindrome or not.
+
+
+#include <stdio.h>
+int main() {
+int n, r, sum=0,rev; 
+printf("Please enter the number here ="); 
+scanf("%d",&n); rev=n; while (n>0) {
+r=n%10; 
+sum=(sum*10)+r; n=n/10; 
+} 
+if (rev==sum)
+printf("This is palindrome number "); 
+else 
+printf("This is not a palindrome number");
+return 0; 
+}
+
+
+Output:
+
+Please enter the number here = 121 
+This is palindrome number
+
+
+
+
+
+7.    b) Write a C program for
+i. Calculate the factorial of a number.
+ii. Generate the nth Fibonacci number
+
+
+FACTORIAL
+
+#include <stdio.h>
+int factorial(int n); 
+void main() { 
+int n, result; 
+printf("Enter a no."); 
+scanf("%d", &n); 
+result = factorial(n); 
+printf("Factorial of %d = %d",n,result); 
+}
+int factorial(int n) 
+{ 
+int result = 1; 
+for(int i = 1; i<=n; i++) 
+{ 
+result = result*i; 
+} 
+return result; 
+}
+ 
+Output:
+
+Enter a no.4 
+Factorial of 4 = 24
+
+
+
+FIBONACCI 
+
+#include <stdio.h> 
+int fibo(int n);
+void main() 
+{ 
+int n,s; 
+printf("ENTER THE NUMBER:"); 
+scanf("%d", &n); 
+printf("FIBONACCI SERIES IS="); 
+s = fibo(n); 
+} 
+int fibo(int n) 
+{ 
+int i, f= 0, s = 1, next; 
+for (i=1;i<=n;i++) 
+{ 
+next = f + s; 
+f = s; 
+s = next; 
+printf(" %d ", s); 
+} 
+return s; 
+} 
+
+Output :
+
+ENTER THE NUMBER: 6 
+FIBONACCI SERIES IS= 1 2 3 5 8 13
+
+
+
+
+
+
+8.	Create a C program to perform various file operations, including reading from a file, writing to a file, and displaying the contents of a file.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void writeToFile(const char *filename) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) {
+        perror("Error opening file for writing");
+        exit(1);
+    }
+
+    printf("Enter text to write to the file (type 'STOP' to finish):\n");
+    char buffer[256];
+    while (1) {
+        fgets(buffer, sizeof(buffer), stdin);
+        if (strncmp(buffer, "STOP", 4) == 0) {
+            break;
+        }
+        fputs(buffer, file);
+    }
+
+    fclose(file);
+    printf("Data successfully written to the file.\n");
+}
+
+void readFromFile(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Error opening file for reading");
+        exit(1);
+    }
+
+    printf("Contents of the file:\n");
+    char ch;
+    while ((ch = fgetc(file)) != EOF) {
+        putchar(ch);
+    }
+
+    fclose(file);
+}
+
+void appendToFile(const char *filename) {
+    FILE *file = fopen(filename, "a");
+    if (file == NULL) {
+        perror("Error opening file for appending");
+        exit(1);
+    }
+
+    printf("Enter text to append to the file (type 'STOP' to finish):\n");
+    char buffer[256];
+    while (1) {
+        fgets(buffer, sizeof(buffer), stdin);
+        if (strncmp(buffer, "STOP", 4) == 0) {
+            break;
+        }
+        fputs(buffer, file);
+    }
+
+    fclose(file);
+    printf("Data successfully appended to the file.\n");
+}
+
+int main() {
+    const char *filename = "example.txt";
+    int choice;
+
+    do {
+        printf("\nFile Operations Menu:\n");
+        printf("1. Write to File\n");
+        printf("2. Read from File\n");
+        printf("3. Append to File\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // To consume the newline character left by scanf
+
+        switch (choice) {
+            case 1:
+                writeToFile(filename);
+                break;
+            case 2:
+                readFromFile(filename);
+                break;
+            case 3:
+                appendToFile(filename);
+                break;
+            case 4:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
+
+
+Output :
+
+
+File Operations Menu: 
+1. Write to File 
+2. Read from File 
+3. Append to File 
+4. Exit 
+Enter your choice: 1 
+
+Enter text to write to the file (type 'STOP' to finish): 
+Hello, this is a test file. 
+This will be saved to the file. 
+STOP 
+Data successfully written to the file.
